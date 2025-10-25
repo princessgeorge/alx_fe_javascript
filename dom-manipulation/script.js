@@ -11,6 +11,9 @@ let quotes = JSON.parse(localStorage.getItem('quotes')) || [
 // DOM Elements
 const quoteDisplay = document.getElementById('quoteDisplay');
 const newQuoteBtn = document.getElementById('newQuote');
+const addQuoteBtn = document.getElementById('addQuoteBtn');
+const exportBtn = document.getElementById('exportBtn');
+const importFileInput = document.getElementById('importFile');
 const categoryList = document.getElementById('categoryList');
 
 // ===== Helper Functions =====
@@ -63,25 +66,6 @@ function displayCategories() {
     btn.addEventListener('click', () => showRandomQuote(category));
     categoryList.appendChild(btn);
   });
-}
-
-// ===== Add Quote Form =====
-function createAddQuoteForm() {
-  const formContainer = document.createElement('div');
-  formContainer.innerHTML = `
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button id="addQuoteBtn">Add Quote</button>
-    <hr>
-    <button id="exportBtn">Export Quotes (JSON)</button>
-    <input type="file" id="importFile" accept=".json" />
-  `;
-  document.body.appendChild(formContainer);
-
-  // Add event listeners
-  document.getElementById('addQuoteBtn').addEventListener('click', addQuote);
-  document.getElementById('exportBtn').addEventListener('click', exportToJsonFile);
-  document.getElementById('importFile').addEventListener('change', importFromJsonFile);
 }
 
 // ===== Add a New Quote =====
@@ -143,10 +127,12 @@ function importFromJsonFile(event) {
 
 // ===== Event Listeners =====
 newQuoteBtn.addEventListener('click', () => showRandomQuote());
+addQuoteBtn.addEventListener('click', addQuote);
+exportBtn.addEventListener('click', exportToJsonFile);
+importFileInput.addEventListener('change', importFromJsonFile);
 
 // ===== Initialize App =====
 loadQuotes();
-createAddQuoteForm();
 displayCategories();
 
 // Display last viewed quote if available

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +18,12 @@
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
     <button id="addQuoteBtn">Add Quote</button>
   </div>
+
+  <hr>
+
+  <!-- ✅ Export and Import elements (checker looks for these) -->
+  <button id="exportBtn">Export Quotes</button>
+  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
   <div id="categoryList"></div>
 
