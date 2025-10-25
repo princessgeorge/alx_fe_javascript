@@ -13,6 +13,14 @@
 
   <hr>
 
+  <!-- ✅ Category Filter -->
+  <label for="categoryFilter"><strong>Filter by Category:</strong></label>
+  <select id="categoryFilter" onchange="filterQuotes()">
+    <option value="all">All Categories</option>
+  </select>
+
+  <hr>
+
   <div>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
@@ -21,7 +29,6 @@
 
   <hr>
 
-  <!-- ✅ Export and Import elements (checker looks for these) -->
   <button id="exportBtn">Export Quotes</button>
   <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
