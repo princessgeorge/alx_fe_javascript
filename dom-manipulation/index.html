@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator</title>
-</head>
 <body>
   <h1>Dynamic Quote Generator</h1>
 
@@ -13,7 +6,6 @@
 
   <hr>
 
-  <!-- ✅ Category Filter -->
   <label for="categoryFilter"><strong>Filter by Category:</strong></label>
   <select id="categoryFilter" onchange="filterQuotes()">
     <option value="all">All Categories</option>
@@ -32,8 +24,13 @@
   <button id="exportBtn">Export Quotes</button>
   <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
+  <hr>
+
+  <!-- ✅ New elements for Sync and Notifications -->
+  <button id="syncBtn">Sync with Server</button>
+  <p id="syncStatus" style="font-weight: bold; color: blue;"></p>
+
   <div id="categoryList"></div>
 
   <script src="script.js"></script>
 </body>
-</html>
